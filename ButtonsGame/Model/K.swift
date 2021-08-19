@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum GameType {
+    case square
+    case cross
+}
+
 class K {
     
     // Variabili che incidono su Box
@@ -25,4 +30,5 @@ class K {
     
     // Variabili che incidono su gameplay
     static let radius: Int = 1
+    static let gameType: GameType = .cross
 }

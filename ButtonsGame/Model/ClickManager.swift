@@ -59,11 +59,22 @@ struct ClickManager {
                 
         // 2. exclude the non-existing buttons
         var correctArrayOfCells: [Int] = []
-        for i in board.buttonsInBoard {
-            for x in arrayOfCells {
-                if (i.row, i.column) == x { correctArrayOfCells.append(i.buttonId) }
+        switch K.gameType {
+        case .square:
+            for i in board.buttonsInBoard {
+                for x in arrayOfCells {
+                    if (i.row, i.column) == x { correctArrayOfCells.append(i.buttonId) }
+                }
             }
-        }
+        case .cross:
+            for i in board.buttonsInBoard {
+                for x in arrayOfCells {
+                    if (i.row, i.column) == x && (i.row == button.row || i.column == button.column) { correctArrayOfCells.append(i.buttonId) }
+                    }
+                }
+            }
+        
+        
                 
         // 3. change the status to the buttons
         for i in correctArrayOfCells {
