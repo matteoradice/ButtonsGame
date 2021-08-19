@@ -14,6 +14,10 @@
 		D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */; };
 		D986C4A426CE6FAE00EB8DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D986C4A326CE6FAE00EB8DCC /* Assets.xcassets */; };
 		D986C4A726CE6FAE00EB8DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D986C4A526CE6FAE00EB8DCC /* LaunchScreen.storyboard */; };
+		D986C4B426CE701100EB8DCC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B326CE701100EB8DCC /* Button.swift */; };
+		D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B526CE70CE00EB8DCC /* Board.swift */; };
+		D986C4B926CE712E00EB8DCC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B826CE712E00EB8DCC /* K.swift */; };
+		D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		D986C4A326CE6FAE00EB8DCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D986C4A626CE6FAE00EB8DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D986C4A826CE6FAE00EB8DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D986C4B326CE701100EB8DCC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		D986C4B526CE70CE00EB8DCC /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		D986C4B826CE712E00EB8DCC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,60 @@
 		D986C49626CE6FA600EB8DCC /* ButtonsGame */ = {
 			isa = PBXGroup;
 			children = (
-				D986C49726CE6FA600EB8DCC /* AppDelegate.swift */,
-				D986C49926CE6FA600EB8DCC /* SceneDelegate.swift */,
-				D986C49B26CE6FA600EB8DCC /* ViewController.swift */,
-				D986C49D26CE6FA600EB8DCC /* Main.storyboard */,
+				D986C4B226CE6FF500EB8DCC /* Datamodel */,
+				D986C4B126CE6FDB00EB8DCC /* Delegate */,
+				D986C4B026CE6FD200EB8DCC /* View */,
+				D986C4AF26CE6FCB00EB8DCC /* Controller */,
+				D986C4AE26CE6FC600EB8DCC /* Model */,
 				D986C4A326CE6FAE00EB8DCC /* Assets.xcassets */,
-				D986C4A526CE6FAE00EB8DCC /* LaunchScreen.storyboard */,
 				D986C4A826CE6FAE00EB8DCC /* Info.plist */,
-				D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */,
 			);
 			path = ButtonsGame;
+			sourceTree = "<group>";
+		};
+		D986C4AE26CE6FC600EB8DCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D986C4B326CE701100EB8DCC /* Button.swift */,
+				D986C4B526CE70CE00EB8DCC /* Board.swift */,
+				D986C4B826CE712E00EB8DCC /* K.swift */,
+				D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D986C4AF26CE6FCB00EB8DCC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D986C49B26CE6FA600EB8DCC /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D986C4B026CE6FD200EB8DCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D986C49D26CE6FA600EB8DCC /* Main.storyboard */,
+				D986C4A526CE6FAE00EB8DCC /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D986C4B126CE6FDB00EB8DCC /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D986C49726CE6FA600EB8DCC /* AppDelegate.swift */,
+				D986C49926CE6FA600EB8DCC /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		D986C4B226CE6FF500EB8DCC /* Datamodel */ = {
+			isa = PBXGroup;
+			children = (
+				D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */,
+			);
+			path = Datamodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D986C4B426CE701100EB8DCC /* Button.swift in Sources */,
+				D986C4B926CE712E00EB8DCC /* K.swift in Sources */,
 				D986C49C26CE6FA600EB8DCC /* ViewController.swift in Sources */,
+				D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */,
 				D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */,
 				D986C49826CE6FA600EB8DCC /* AppDelegate.swift in Sources */,
+				D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */,
 				D986C49A26CE6FA600EB8DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
