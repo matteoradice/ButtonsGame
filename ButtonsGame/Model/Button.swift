@@ -18,4 +18,5 @@ struct Button {
     var buttonId: Int = 0
     // Variabile che definisce il colore di visualizzazione del box
     var color: UIColor = K.inactiveColor
+    
 }

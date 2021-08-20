@@ -10,33 +10,29 @@ import UIKit
 class ViewController: UIViewController {
     
     var board: Board = Board()
+    var originalBoard: Board = Board()
     var solution: [Int] = []
-    
+    var originalSolution: [Int] = []
     let clickManager: ClickManager = ClickManager()
-    
     var boardCollectionView: UICollectionView?
     var frame: CGRect = CGRect()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         frame = calculateCollectionPositionAndSize()
         let layout = calculateCollectionLayout()
-        
         boardCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         board.initializeBoard()
         let boardAndSolution: (Board, [Int]) = clickManager.createSchemaToSolve(board: board)
         board = boardAndSolution.0
+        originalBoard = board
         solution = boardAndSolution.1
+        originalSolution = solution
         registerCell()
-        
         boardCollectionView?.delegate = self
         boardCollectionView?.dataSource = self
-        
         view.addSubview(boardCollectionView ?? UICollectionView())
         boardCollectionView?.reloadData()
-        
     }
     
     func calculateCollectionPositionAndSize() -> CGRect {
@@ -62,16 +58,12 @@ class ViewController: UIViewController {
     }
     
     private func calculateItemSize() -> (CGFloat, CGFloat) {
-        
         var height: CGFloat = 0
         var width: CGFloat = 0
-        
         width = (frame.width - (K.insets.left + K.insets.right) - (CGFloat(K.columns - 1) * K.minimumSpacing)) / CGFloat(K.columns)
         height = (frame.height - (K.insets.top + K.insets.bottom) - (CGFloat(K.rows - 1) * K.minimumSpacing)) / CGFloat(K.rows)
-        
         if width <= height { height = width }
         else { width = height }
-        
         return (width, height)
     }
     
@@ -84,18 +76,17 @@ class ViewController: UIViewController {
 //MARK: - UICollectionDataSource
 
 extension ViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return K.rows * K.columns
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BoardCell", for: indexPath)
-            
-        
         cell.backgroundColor = board.buttonsInBoard[indexPath.row].color
         return cell
     }
+
 }
 
 //MARK: - Click on cells
@@ -104,10 +95,10 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         board = clickManager.clickOnButton(board: board, button: board.buttonsInBoard[indexPath.row])
+        solution = clickManager.verifyAndUpdateSolution(solution: solution, button: board.buttonsInBoard[indexPath.row])
+        print("Updated solution \(solution)")
         collectionView.reloadData()
         print(clickManager.verifyGameStatus(board: board))
     }
     
-    
 }
-

@@ -13,7 +13,6 @@ struct Board {
     // Array che contiene i box - Viene inizializzata con tutte celle spente quando istanziato Board
     var buttonsInBoard: [Button] = []
     
-
     mutating func initializeBoard() {
         var tempButton: Button = Button()
         var buttonId: Int = 0
@@ -27,4 +26,5 @@ struct Board {
             }
         }
     }
+    
 }

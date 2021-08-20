@@ -21,7 +21,7 @@ struct ClickManager {
     }
     
     // Metodo per cambiare stato al box
-    func changeStatusToButton(board: Board, button: Button) -> Board {
+    private func changeStatusToButton(board: Board, button: Button) -> Board {
         var myButton = button
         var myBoard = board
         
@@ -36,14 +36,14 @@ struct ClickManager {
         
         return myBoard
     }
-
+    
     // Metodo di verifica sul box cliccato e su tutti i box adiacenti
     func clickOnButton(board: Board, button: Button) -> Board {
         
         var myBoard: Board = board
         
         // 1. identify the buttons to change
-                
+        
         let lowRowsRange: Int = button.row - K.radius
         let highRowsRange: Int = button.row + K.radius
         let lowColumnsRange: Int = button.column - K.radius
@@ -56,7 +56,7 @@ struct ClickManager {
                 arrayOfCells.append((row, column))
             }
         }
-                
+        
         // 2. exclude the non-existing buttons
         var correctArrayOfCells: [Int] = []
         switch K.gameType {
@@ -70,9 +70,9 @@ struct ClickManager {
             for i in board.buttonsInBoard {
                 for x in arrayOfCells {
                     if (i.row, i.column) == x && (i.row == button.row || i.column == button.column) { correctArrayOfCells.append(i.buttonId) }
-                    }
                 }
             }
+        }
         
         // 3. change the status to the buttons
         for i in correctArrayOfCells {
@@ -109,6 +109,25 @@ struct ClickManager {
         print(solution)
         return (myBoard, solution)
     }
-
+    
+    // Metodo che verifica se il click è stato fatto su una casella utile alla soluzione e fa update dell'array solution
+    func verifyAndUpdateSolution(solution: [Int], button: Button) -> [Int] {
+        var mySolution: [Int] = solution
+        let myButton: Button = button
+        var elementToRemove: Int = 0
+        var newElement: Bool = false
+        
+        if mySolution.contains(myButton.buttonId) == true { newElement = false }
+        else { newElement =  true }
+        if newElement == true { mySolution.append(myButton.buttonId)
+        } else {
+            for i in 0..<mySolution.count {
+                if myButton.buttonId == mySolution[i] {
+                    elementToRemove = i }
+            }
+        }
+        if newElement == false { mySolution.remove(at: elementToRemove) }
+        return mySolution
+    }
     
 }
