@@ -12,6 +12,12 @@ enum GameType {
     case cross
 }
 
+enum DifficultyLevel {
+    case hard
+    case medium
+    case easy
+}
+
 class K {
     
     // Variabili che incidono su Box
@@ -19,8 +25,8 @@ class K {
     static let inactiveColor: UIColor = .systemGray
     
     // Variabili che incidono su Board
-    static let rows: Int = 7
-    static let columns: Int = 7
+    static let rows: Int = 5
+    static let columns: Int = 5
     
     // Variabili per disposizione della collectionview
     static let topMargin: CGFloat = 30
@@ -31,4 +37,16 @@ class K {
     // Variabili che incidono su gameplay
     static let radius: Int = 1
     static let gameType: GameType = .cross
+    static let difficulty: DifficultyLevel = .easy
+    static var numberOfMovesForSolution: Int {
+        switch difficulty {
+        case .easy:
+            return 5
+        case .medium:
+            return 10
+        case .hard:
+            return 15
+        }
+    }
+    
 }

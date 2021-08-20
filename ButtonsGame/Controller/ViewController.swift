@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var board: Board = Board()
+    var solution: [Int] = []
+    
     let clickManager: ClickManager = ClickManager()
     
     var boardCollectionView: UICollectionView?
@@ -24,6 +26,9 @@ class ViewController: UIViewController {
         
         boardCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         board.initializeBoard()
+        let boardAndSolution: (Board, [Int]) = clickManager.createSchemaToSolve(board: board)
+        board = boardAndSolution.0
+        solution = boardAndSolution.1
         registerCell()
         
         boardCollectionView?.delegate = self
