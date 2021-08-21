@@ -13,62 +13,52 @@ class ViewController: UIViewController {
     var originalBoard: Board = Board()
     var solution: [Int] = []
     var originalSolution: [Int] = []
+    
     let clickManager: ClickManager = ClickManager()
+    let collectionManager: CollectionManager = CollectionManager()
+    var mainScreenFramework: MainScreenFramework = MainScreenFramework()
+    
     var boardCollectionView: UICollectionView?
-    var frame: CGRect = CGRect()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        frame = calculateCollectionPositionAndSize()
-        let layout = calculateCollectionLayout()
-        boardCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        
+        //  Inizializzazione del tabellone di gioco
         board.initializeBoard()
         let boardAndSolution: (Board, [Int]) = clickManager.createSchemaToSolve(board: board)
         board = boardAndSolution.0
         originalBoard = board
         solution = boardAndSolution.1
         originalSolution = solution
-        registerCell()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        //  Creazione e visualizzazione del framework di viste
+        let safeAreaInsets: UIEdgeInsets = self.view.safeAreaInsets
+        mainScreenFramework = MainScreenFramework(controllerView: self.view)
+        mainScreenFramework.createVisualizationFramework(insetsSafeArea: safeAreaInsets)
+        
+        //  Inserimento della collectionView dentro a middleView
+        let collectionFeatures = collectionManager.calculateCollectionFeatures(collectionContainingView: mainScreenFramework.middleView)
+        let collectionFrame = collectionFeatures.0
+        let collectionLayout = collectionFeatures.1
+        boardCollectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: collectionLayout)
+        
+        //  Registrazione delle celle
+        boardCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
+        
+        
+        //  Delegati della collection
         boardCollectionView?.delegate = self
         boardCollectionView?.dataSource = self
-        view.addSubview(boardCollectionView ?? UICollectionView())
-        boardCollectionView?.reloadData()
-    }
+        
+        
+        // Visualizzazione della collection
+        mainScreenFramework.middleView.addSubview(boardCollectionView ?? UICollectionView())
+        boardCollectionView?.backgroundColor = .clear
     
-    func calculateCollectionPositionAndSize() -> CGRect {
-        var x: CGFloat = 0
-        var y: CGFloat = 0
-        var width: CGFloat = 0
-        var height: CGFloat = 0
-        x = view.frame.minX + K.leftMargin
-        y = view.frame.minY + K.topMargin
-        width = view.bounds.width - (K.leftMargin * 2)
-        height = view.bounds.height - (K.topMargin * 2)
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
-    func calculateCollectionLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        let itemSize = calculateItemSize()
-        layout.sectionInset = K.insets
-        layout.itemSize = CGSize(width: itemSize.0, height: itemSize.1)
-        layout.minimumLineSpacing = K.minimumSpacing
-        layout.minimumInteritemSpacing = K.minimumSpacing
-        return layout
-    }
-    
-    private func calculateItemSize() -> (CGFloat, CGFloat) {
-        var height: CGFloat = 0
-        var width: CGFloat = 0
-        width = (frame.width - (K.insets.left + K.insets.right) - (CGFloat(K.columns - 1) * K.minimumSpacing)) / CGFloat(K.columns)
-        height = (frame.height - (K.insets.top + K.insets.bottom) - (CGFloat(K.rows - 1) * K.minimumSpacing)) / CGFloat(K.rows)
-        if width <= height { height = width }
-        else { width = height }
-        return (width, height)
-    }
-    
-    func registerCell() {
-        boardCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
     }
     
 }
@@ -86,7 +76,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.backgroundColor = board.buttonsInBoard[indexPath.row].color
         return cell
     }
-
+    
 }
 
 //MARK: - Click on cells

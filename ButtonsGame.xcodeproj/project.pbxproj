@@ -18,6 +18,8 @@
 		D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B526CE70CE00EB8DCC /* Board.swift */; };
 		D986C4B926CE712E00EB8DCC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B826CE712E00EB8DCC /* K.swift */; };
 		D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */; };
+		D986C4C026D0EA2F00EB8DCC /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */; };
+		D986C4E426D0FE8200EB8DCC /* MainScreenFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		D986C4B526CE70CE00EB8DCC /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		D986C4B826CE712E00EB8DCC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickManager.swift; sourceTree = "<group>"; };
+		D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
+		D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenFramework.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		D986C4AF26CE6FCB00EB8DCC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D986C4BE26D0EA1C00EB8DCC /* Views display */,
 				D986C49B26CE6FA600EB8DCC /* ViewController.swift */,
 			);
 			path = Controller;
@@ -120,6 +125,15 @@
 				D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */,
 			);
 			path = Datamodel;
+			sourceTree = "<group>";
+		};
+		D986C4BE26D0EA1C00EB8DCC /* Views display */ = {
+			isa = PBXGroup;
+			children = (
+				D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */,
+				D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */,
+			);
+			path = "Views display";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D986C4C026D0EA2F00EB8DCC /* CollectionManager.swift in Sources */,
 				D986C4B426CE701100EB8DCC /* Button.swift in Sources */,
 				D986C4B926CE712E00EB8DCC /* K.swift in Sources */,
+				D986C4E426D0FE8200EB8DCC /* MainScreenFramework.swift in Sources */,
 				D986C49C26CE6FA600EB8DCC /* ViewController.swift in Sources */,
 				D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */,
 				D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */,

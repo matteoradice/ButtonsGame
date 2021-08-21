@@ -22,7 +22,7 @@ class K {
     
     // Variabili che incidono su Box
     static let activeColor: UIColor = .systemRed
-    static let inactiveColor: UIColor = .systemGray
+    static let inactiveColor: UIColor = .white
     
     // Variabili che incidono su Board
     static let rows: Int = 5
@@ -37,7 +37,7 @@ class K {
     // Variabili che incidono su gameplay
     static let radius: Int = 1
     static let gameType: GameType = .cross
-    static let difficulty: DifficultyLevel = .hard
+    static let difficulty: DifficultyLevel = .easy
     static var numberOfMovesForSolution: Int {
         switch difficulty {
         case .easy:
