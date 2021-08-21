@@ -8,9 +8,7 @@
 import UIKit
 
 struct MainScreenFramework {
-    
-    typealias CompletionHandler = (_ completed: Bool) -> ()
-    
+        
     var overarchingView: UIView = UIView()
     var topView: UIView = UIView()
     var middleView: UIView = UIView()

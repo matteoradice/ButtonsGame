@@ -95,7 +95,7 @@
 		D986C4AF26CE6FCB00EB8DCC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D986C4BE26D0EA1C00EB8DCC /* Views display */,
+				D986C4BE26D0EA1C00EB8DCC /* Visualization manager */,
 				D986C49B26CE6FA600EB8DCC /* ViewController.swift */,
 			);
 			path = Controller;
@@ -127,13 +127,13 @@
 			path = Datamodel;
 			sourceTree = "<group>";
 		};
-		D986C4BE26D0EA1C00EB8DCC /* Views display */ = {
+		D986C4BE26D0EA1C00EB8DCC /* Visualization manager */ = {
 			isa = PBXGroup;
 			children = (
 				D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */,
 				D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */,
 			);
-			path = "Views display";
+			path = "Visualization manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
