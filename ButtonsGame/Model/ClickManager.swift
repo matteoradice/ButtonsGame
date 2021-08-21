@@ -87,13 +87,10 @@ struct ClickManager {
     private func calculateSolution(board: Board) -> [Int] {
         let myBoard = board
         var solutionArray: [Int] = []
-        var counter: Int = 0
-        while counter < K.numberOfMovesForSolution {
+        while solutionArray.count < K.numberOfMovesForSolution {
             let buttonToAdd: Int = Int.random(in: 0..<(K.columns * K.rows))
-            if solutionArray.contains(buttonToAdd) { counter -= 1 }
-            else {
+            if solutionArray.contains(buttonToAdd) == false {
                 solutionArray.append(myBoard.buttonsInBoard[buttonToAdd].buttonId)
-                counter += 1
             }
         }
         return solutionArray
@@ -102,7 +99,9 @@ struct ClickManager {
     // Metodo che crea una board con il puzzle e restituisce anche la soluzione (array)
     func createSchemaToSolve(board:Board) -> (Board, [Int]) {
         var myBoard = board
+        
         let solution: [Int] = calculateSolution(board: myBoard)
+        
         for i in solution {
             myBoard = clickOnButton(board: myBoard, button: board.buttonsInBoard[i])
         }

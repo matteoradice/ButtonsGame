@@ -37,7 +37,7 @@ class K {
     // Variabili che incidono su gameplay
     static let radius: Int = 1
     static let gameType: GameType = .cross
-    static let difficulty: DifficultyLevel = .easy
+    static let difficulty: DifficultyLevel = .hard
     static var numberOfMovesForSolution: Int {
         switch difficulty {
         case .easy:
