@@ -17,12 +17,14 @@ class ViewController: UIViewController {
     let clickManager: ClickManager = ClickManager()
     let collectionManager: CollectionManager = CollectionManager()
     var mainScreenFramework: MainScreenFramework = MainScreenFramework()
+    var bottomViewManager: BottomViewManager = BottomViewManager()
+    var topViewManager: TopViewManager = TopViewManager()
     
     var boardCollectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         //  Inizializzazione del tabellone di gioco
         board.initializeBoard()
         let boardAndSolution: (Board, [Int]) = clickManager.createSchemaToSolve(board: board)
@@ -45,6 +47,9 @@ class ViewController: UIViewController {
         let collectionFrame = collectionFeatures.0
         let collectionLayout = collectionFeatures.1
         boardCollectionView = UICollectionView(frame: collectionFrame, collectionViewLayout: collectionLayout)
+        
+        //  Creazione della topview
+        topViewManager.displayTopView(containingView: mainScreenFramework.topView)
         
         //  Registrazione delle celle
         boardCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")

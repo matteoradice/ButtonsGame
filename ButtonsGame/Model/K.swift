@@ -20,17 +20,21 @@ enum DifficultyLevel {
 
 class K {
     
+    //  Palette di colori
+    static let color01 = UIColor(red: 0.44, green: 0.41, blue: 0.67, alpha: 1.00)
+    static let color02 = UIColor(red: 0.58, green: 0.85, blue: 0.76, alpha: 1.00)
+    static let color03 = UIColor(red: 1.00, green: 0.92, blue: 0.63, alpha: 1.00)
+    static let color04 = UIColor(red: 0.99, green: 0.44, blue: 0.59, alpha: 1.00)
+    
     // Variabili che incidono su Box
-    static let activeColor: UIColor = .systemRed
-    static let inactiveColor: UIColor = .white
+    static let activeColor: UIColor = color01
+    static let inactiveColor: UIColor = color02
     
     // Variabili che incidono su Board
     static let rows: Int = 5
     static let columns: Int = 5
     
     // Variabili per disposizione della collectionview
-    static let topMargin: CGFloat = 30
-    static let leftMargin: CGFloat = 30
     static let insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     static let minimumSpacing: CGFloat = 5
     
@@ -48,5 +52,10 @@ class K {
             return 15
         }
     }
+    
+    //  Variabili che definiscono il layout della topView
+    //  Dimensione del bottone settings
+    static let buttonWidth: CGFloat = 100
+    static let buttonHeight: CGFloat = 100
     
 }

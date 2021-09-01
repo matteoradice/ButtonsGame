@@ -25,6 +25,7 @@ struct MainScreenFramework {
     
     mutating func createVisualizationFramework(insetsSafeArea: UIEdgeInsets) {
         
+        controllerView.backgroundColor = K.color04
         buildOverarchingView(insetsSafeArea: insetsSafeArea)
         buildTopView()
         buildMiddleView()
