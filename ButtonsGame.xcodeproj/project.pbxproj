@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D986C49826CE6FA600EB8DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C49726CE6FA600EB8DCC /* AppDelegate.swift */; };
 		D986C49A26CE6FA600EB8DCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C49926CE6FA600EB8DCC /* SceneDelegate.swift */; };
-		D986C49C26CE6FA600EB8DCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C49B26CE6FA600EB8DCC /* ViewController.swift */; };
 		D986C49F26CE6FA600EB8DCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D986C49D26CE6FA600EB8DCC /* Main.storyboard */; };
 		D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */; };
 		D986C4A426CE6FAE00EB8DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D986C4A326CE6FAE00EB8DCC /* Assets.xcassets */; };
@@ -18,17 +17,13 @@
 		D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B526CE70CE00EB8DCC /* Board.swift */; };
 		D986C4B926CE712E00EB8DCC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B826CE712E00EB8DCC /* K.swift */; };
 		D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */; };
-		D986C4C026D0EA2F00EB8DCC /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */; };
-		D986C4E426D0FE8200EB8DCC /* MainScreenFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */; };
-		D986C4E626D1470700EB8DCC /* BottomViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4E526D1470700EB8DCC /* BottomViewManager.swift */; };
-		D986C4EC26D2540400EB8DCC /* TopViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4EB26D2540400EB8DCC /* TopViewManager.swift */; };
+		D99E11A526DF9CF0005942A5 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E11A426DF9CF0005942A5 /* GameBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D986C49426CE6FA600EB8DCC /* ButtonsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986C49726CE6FA600EB8DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D986C49926CE6FA600EB8DCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D986C49B26CE6FA600EB8DCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D986C49E26CE6FA600EB8DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D986C4A126CE6FA600EB8DCC /* ButtonsGame.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ButtonsGame.xcdatamodel; sourceTree = "<group>"; };
 		D986C4A326CE6FAE00EB8DCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,10 +33,7 @@
 		D986C4B526CE70CE00EB8DCC /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		D986C4B826CE712E00EB8DCC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickManager.swift; sourceTree = "<group>"; };
-		D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
-		D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenFramework.swift; sourceTree = "<group>"; };
-		D986C4E526D1470700EB8DCC /* BottomViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewManager.swift; sourceTree = "<group>"; };
-		D986C4EB26D2540400EB8DCC /* TopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewManager.swift; sourceTree = "<group>"; };
+		D99E11A426DF9CF0005942A5 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +91,7 @@
 		D986C4AF26CE6FCB00EB8DCC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D986C4BE26D0EA1C00EB8DCC /* Visualization manager */,
-				D986C49B26CE6FA600EB8DCC /* ViewController.swift */,
+				D99E11A426DF9CF0005942A5 /* GameBoard.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,17 +120,6 @@
 				D986C4A026CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld */,
 			);
 			path = Datamodel;
-			sourceTree = "<group>";
-		};
-		D986C4BE26D0EA1C00EB8DCC /* Visualization manager */ = {
-			isa = PBXGroup;
-			children = (
-				D986C4BF26D0EA2F00EB8DCC /* CollectionManager.swift */,
-				D986C4E326D0FE8200EB8DCC /* MainScreenFramework.swift */,
-				D986C4E526D1470700EB8DCC /* BottomViewManager.swift */,
-				D986C4EB26D2540400EB8DCC /* TopViewManager.swift */,
-			);
-			path = "Visualization manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,14 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D986C4C026D0EA2F00EB8DCC /* CollectionManager.swift in Sources */,
-				D986C4EC26D2540400EB8DCC /* TopViewManager.swift in Sources */,
 				D986C4B426CE701100EB8DCC /* Button.swift in Sources */,
+				D99E11A526DF9CF0005942A5 /* GameBoard.swift in Sources */,
 				D986C4B926CE712E00EB8DCC /* K.swift in Sources */,
-				D986C4E426D0FE8200EB8DCC /* MainScreenFramework.swift in Sources */,
-				D986C49C26CE6FA600EB8DCC /* ViewController.swift in Sources */,
 				D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */,
-				D986C4E626D1470700EB8DCC /* BottomViewManager.swift in Sources */,
 				D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */,
 				D986C49826CE6FA600EB8DCC /* AppDelegate.swift in Sources */,
 				D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */,
