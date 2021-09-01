@@ -8,7 +8,7 @@
 import UIKit
 
 class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-   
+    
     @IBOutlet weak var containerViewForCollection: UIView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
@@ -25,12 +25,12 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     var board: Board = Board()
     var originalBoard: Board = Board()
-        
+    
     var solution: [Int] = []
     var originalSolution: [Int] = []
     
     var layout = UICollectionViewFlowLayout()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         board.initializeBoard()
@@ -39,9 +39,20 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         originalBoard = board
         solution = boardAndSolution.1
         originalSolution = solution
+        
+        let frame: CGRect = calculateSizeForCollection()
+        let boardCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        boardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
+        boardCollectionView.delegate = self
+        boardCollectionView.dataSource = self
+        containerViewForCollection.addSubview(boardCollectionView)
+        containerViewForCollection.backgroundColor = .clear
+        boardCollectionView.backgroundColor = .clear
+
+        
     }
     
-    override func viewDidLayoutSubviews() {
+   /* override func viewDidLayoutSubviews() {
         let frame: CGRect = calculateSizeForCollection()
         let boardCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         boardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
@@ -51,7 +62,7 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         containerViewForCollection.backgroundColor = .clear
         boardCollectionView.backgroundColor = .clear
     }
-    
+  */
     func calculateSizeForCollection() -> CGRect {
         let frame: CGRect = containerViewForCollection.frame
         var padding: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -63,14 +74,9 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         let availableWidth: CGFloat = frame.width - padding.left - padding.right
         var itemHeight: CGFloat = (availableHeight - insets.top - insets.bottom - (minimumSpacing * (numberOfRows - 1))) / numberOfRows
         var itemWidth: CGFloat = (availableWidth - insets.left - insets.right - (minimumSpacing * (numberOfColumns - 1))) / numberOfColumns
-        print("Available width \(availableWidth)")
-        print("Insets left and right \(insets.left), \(insets.right)")
-        print("Minimum spacing \(minimumSpacing)")
-        print("NumberOfColumns \(numberOfColumns)")
         if itemHeight <= itemWidth { itemWidth = itemHeight }
         else { itemHeight = itemWidth }
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        print("ItemSize \(layout.itemSize)")
         layout.sectionInset = insets
         layout.minimumLineSpacing = minimumSpacing
         layout.minimumInteritemSpacing = minimumSpacing
@@ -92,23 +98,14 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         cell.contentView.backgroundColor = board.buttonsInBoard[indexPath.row].color
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-    
-    @IBAction func menuButtonPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func restartButtonPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func helpButtonPressed(_ sender: UIButton) {
-    }
-    
-    func calculateSizes() {
-        
+        board = clickManager.clickOnButton(board: board, button: board.buttonsInBoard[indexPath.row])
+        solution = clickManager.verifyAndUpdateSolution(solution: solution, button: board.buttonsInBoard[indexPath.row])
+        print("Updated solution \(solution)")
+        collectionView.reloadData()
+        print(clickManager.verifyGameStatus(board: board))
     }
     
 }
+
