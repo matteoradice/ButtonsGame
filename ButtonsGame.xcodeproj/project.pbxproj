@@ -18,6 +18,8 @@
 		D986C4B926CE712E00EB8DCC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4B826CE712E00EB8DCC /* K.swift */; };
 		D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */; };
 		D99E11A526DF9CF0005942A5 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E11A426DF9CF0005942A5 /* GameBoard.swift */; };
+		D99E11A926E61E1F005942A5 /* CollectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E11A826E61E1F005942A5 /* CollectionLayoutManager.swift */; };
+		D99E11AB26E62186005942A5 /* GameKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E11AA26E62186005942A5 /* GameKeeper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		D986C4B826CE712E00EB8DCC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickManager.swift; sourceTree = "<group>"; };
 		D99E11A426DF9CF0005942A5 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		D99E11A826E61E1F005942A5 /* CollectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayoutManager.swift; sourceTree = "<group>"; };
+		D99E11AA26E62186005942A5 /* GameKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameKeeper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				D986C4B526CE70CE00EB8DCC /* Board.swift */,
 				D986C4B826CE712E00EB8DCC /* K.swift */,
 				D986C4BC26CE8C4E00EB8DCC /* ClickManager.swift */,
+				D99E11A826E61E1F005942A5 /* CollectionLayoutManager.swift */,
+				D99E11AA26E62186005942A5 /* GameKeeper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,10 +201,12 @@
 				D986C4B426CE701100EB8DCC /* Button.swift in Sources */,
 				D99E11A526DF9CF0005942A5 /* GameBoard.swift in Sources */,
 				D986C4B926CE712E00EB8DCC /* K.swift in Sources */,
+				D99E11AB26E62186005942A5 /* GameKeeper.swift in Sources */,
 				D986C4B626CE70CE00EB8DCC /* Board.swift in Sources */,
 				D986C4A226CE6FA600EB8DCC /* ButtonsGame.xcdatamodeld in Sources */,
 				D986C49826CE6FA600EB8DCC /* AppDelegate.swift in Sources */,
 				D986C4BD26CE8C4E00EB8DCC /* ClickManager.swift in Sources */,
+				D99E11A926E61E1F005942A5 /* CollectionLayoutManager.swift in Sources */,
 				D986C49A26CE6FA600EB8DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

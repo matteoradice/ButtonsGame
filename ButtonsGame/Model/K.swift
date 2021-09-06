@@ -58,4 +58,7 @@ class K {
     static let buttonWidth: CGFloat = 100
     static let buttonHeight: CGFloat = 100
     
+    //  Variabile che definisce il numero di stellette ottenibili nel livello
+    static let numberOfMaxStars: Int = 3
+    
 }
