@@ -7,9 +7,10 @@
 
 import UIKit
 
-class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var containerViewForCollection: UIView!
+    @IBOutlet weak var boardCollectionView: UICollectionView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
@@ -35,46 +36,72 @@ class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewD
         originalBoard = board
         solution = boardAndSolution.1
         originalSolution = solution
-        let frame = calculateSizeForCollection()
-        let boardCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        boardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
+        
         boardCollectionView.delegate = self
         boardCollectionView.dataSource = self
-        containerViewForCollection.addSubview(boardCollectionView)
-        print("subview added")
+        
         containerViewForCollection.backgroundColor = .clear
         boardCollectionView.backgroundColor = .clear
+
+        boardCollectionView.isHidden = true
+        
     }
     
     override func viewDidLayoutSubviews() {
-        print("Size containerViewForCollection \(containerViewForCollection.frame)")
+        calculateSizeForCollection()
+        boardCollectionView.reloadData()
+        boardCollectionView.isHidden = false
     }
     
-    func calculateSizeForCollection() -> CGRect {
-        let frame: CGRect = containerViewForCollection.frame
-        print(containerViewForCollection.frame)
-        var padding: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let minimumSpacing: CGFloat = 5.0
+    func calculateSizeForCollection() {
+        
+        let availableHeight = boardCollectionView.frame.height
+        let availableWidth = boardCollectionView.frame.width
+        
         let numberOfRows: CGFloat = CGFloat(K.rows)
         let numberOfColumns: CGFloat = CGFloat(K.columns)
-        let availableHeight: CGFloat = frame.height - padding.top - padding.bottom
-        let availableWidth: CGFloat = frame.width - padding.left - padding.right
-        var itemHeight: CGFloat = (availableHeight - insets.top - insets.bottom - (minimumSpacing * (numberOfRows - 1))) / numberOfRows
-        var itemWidth: CGFloat = (availableWidth - insets.left - insets.right - (minimumSpacing * (numberOfColumns - 1))) / numberOfColumns
+        
+        layout.minimumLineSpacing = 5.0
+        layout.minimumInteritemSpacing = 5.0
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        let heightForItems: CGFloat = availableHeight - layout.sectionInset.top - layout.sectionInset.bottom - (layout.minimumLineSpacing * (numberOfRows - 1))
+        let widthForItems: CGFloat = availableWidth - layout.sectionInset.left - layout.sectionInset.right - (layout.minimumInteritemSpacing * (numberOfColumns - 1))
+        
+        var itemHeight: CGFloat = heightForItems / numberOfRows
+        var itemWidth: CGFloat = widthForItems / numberOfColumns
+        
         if itemHeight <= itemWidth { itemWidth = itemHeight }
         else { itemHeight = itemWidth }
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.sectionInset = insets
-        layout.minimumLineSpacing = minimumSpacing
-        layout.minimumInteritemSpacing = minimumSpacing
-        let usedHeight: CGFloat = (itemHeight * numberOfRows) + (minimumSpacing * (numberOfRows - 1)) + insets.top + insets.bottom
-        let usedWidth: CGFloat = (itemWidth * numberOfColumns) + (minimumSpacing * (numberOfColumns - 1)) + insets.left + insets.right
-        let x: CGFloat = (frame.width - usedWidth) / 2
-        let y: CGFloat = (frame.height - usedHeight) / 2
-        padding = UIEdgeInsets(top: y, left: x, bottom: y, right: x)
-        let collectionViewFrame: CGRect = CGRect(x: padding.left, y: padding.top, width: usedWidth, height: usedHeight)
-        return collectionViewFrame
+        
+        layout.itemSize.width = itemWidth
+        layout.itemSize.height = itemHeight
+        
+        let actuallyUsedHeight: CGFloat = layout.itemSize.height * numberOfRows + (layout.minimumLineSpacing * (numberOfRows - 1))
+        let actuallyUsedWidth: CGFloat = layout.itemSize.width * numberOfColumns + (layout.minimumInteritemSpacing * (numberOfColumns - 1))
+        
+        layout.sectionInset = UIEdgeInsets(
+            top: (availableHeight - actuallyUsedHeight) / 2,
+            left: (availableWidth - actuallyUsedWidth) / 2,
+            bottom: (availableHeight - actuallyUsedHeight) / 2,
+            right: (availableWidth - actuallyUsedWidth) / 2
+        )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return layout.sectionInset
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return layout.itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return layout.minimumLineSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return layout.minimumInteritemSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
