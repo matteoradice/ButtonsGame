@@ -6,7 +6,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -212,35 +211,7 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1F2-f8-d2C" userLabel="ContainerViewForCollection">
                                         <rect key="frame" x="0.0" y="166" width="414" height="600"/>
-                                        <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ore-zU-Gsy">
-                                                <rect key="frame" x="10" y="10" width="394" height="580"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="trJ-ic-LgZ">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BoardCell" id="GuR-or-idN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uhW-m0-TV3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Ore-zU-Gsy" secondAttribute="bottom" constant="10" id="BbX-5Y-Wtr"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ore-zU-Gsy" secondAttribute="trailing" constant="10" id="PQx-c7-OW1"/>
-                                            <constraint firstItem="Ore-zU-Gsy" firstAttribute="leading" secondItem="1F2-f8-d2C" secondAttribute="leading" constant="10" id="fyb-hd-mDP"/>
-                                            <constraint firstItem="Ore-zU-Gsy" firstAttribute="top" secondItem="1F2-f8-d2C" secondAttribute="top" constant="10" id="ui0-2L-UjC"/>
-                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJ9-iV-H2e" userLabel="HelpButtonView">
                                         <rect key="frame" x="0.0" y="774" width="414" height="44"/>
@@ -297,7 +268,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="boardCollectionView" destination="Ore-zU-Gsy" id="oe5-YW-oX8"/>
                         <outlet property="containerViewForCollection" destination="1F2-f8-d2C" id="kRR-TX-Bi9"/>
                         <outlet property="firstStarImage" destination="iTp-KZ-Ms6" id="wkP-gc-YLJ"/>
                         <outlet property="helpButton" destination="rKg-Za-wvd" id="SDu-je-T15"/>

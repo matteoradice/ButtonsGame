@@ -10,7 +10,6 @@ import UIKit
 class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var containerViewForCollection: UIView!
-    @IBOutlet weak var boardCollectionView: UICollectionView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
@@ -29,6 +28,7 @@ class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var originalSolution: [Int] = []
     
     var layout = UICollectionViewFlowLayout()
+    var boardCollectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,20 +40,29 @@ class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewD
         solution = boardAndSolution.1
         originalSolution = solution
         
-        boardCollectionView.delegate = self
-        boardCollectionView.dataSource = self
+        
+        boardCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: containerViewForCollection.frame.width, height: containerViewForCollection.frame.height), collectionViewLayout: layout)
+        
+        containerViewForCollection.addSubview(boardCollectionView!)
+        
+        let nib = UINib(nibName: "BoardCell", bundle: nil)
+        boardCollectionView?.register(nib, forCellWithReuseIdentifier: "BoardCell")
+
+        
+        boardCollectionView!.delegate = self
+        boardCollectionView!.dataSource = self
         
         containerViewForCollection.backgroundColor = .clear
-        boardCollectionView.backgroundColor = .clear
+        boardCollectionView!.backgroundColor = .clear
 
-        boardCollectionView.isHidden = true
+        boardCollectionView!.isHidden = true
         
     }
     
     override func viewDidLayoutSubviews() {
-        layout = collectionLayoutManager.calculateSizeForCollection(boardCollectionView: boardCollectionView)
-        boardCollectionView.reloadData()
-        boardCollectionView.isHidden = false
+        layout = collectionLayoutManager.calculateSizeForCollection(boardCollectionView: boardCollectionView!)
+        boardCollectionView!.reloadData()
+        boardCollectionView!.isHidden = false
     }
 
 }
