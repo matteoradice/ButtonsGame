@@ -245,10 +245,12 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1F2-f8-d2C" secondAttribute="trailing" id="1sP-hE-h8p"/>
                                     <constraint firstItem="eJ9-iV-H2e" firstAttribute="leading" secondItem="ZFO-w3-8WY" secondAttribute="leading" id="8oB-cK-6S4"/>
+                                    <constraint firstItem="1F2-f8-d2C" firstAttribute="leading" secondItem="ZFO-w3-8WY" secondAttribute="leading" id="Gfu-Dw-STq"/>
                                     <constraint firstItem="IyC-KZ-bk3" firstAttribute="top" secondItem="ZFO-w3-8WY" secondAttribute="top" id="J5I-M9-fiD"/>
                                     <constraint firstItem="1F2-f8-d2C" firstAttribute="leading" secondItem="ZFO-w3-8WY" secondAttribute="leading" id="QPU-sG-8ku"/>
                                     <constraint firstAttribute="trailing" secondItem="IyC-KZ-bk3" secondAttribute="trailing" id="Yue-BH-xlO"/>
                                     <constraint firstAttribute="trailing" secondItem="eJ9-iV-H2e" secondAttribute="trailing" id="Zx3-mm-Ugv"/>
+                                    <constraint firstAttribute="trailing" secondItem="1F2-f8-d2C" secondAttribute="trailing" id="dGn-df-DPQ"/>
                                     <constraint firstItem="ncg-kp-NSZ" firstAttribute="leading" secondItem="ZFO-w3-8WY" secondAttribute="leading" id="l2d-sH-48B"/>
                                     <constraint firstAttribute="trailing" secondItem="ncg-kp-NSZ" secondAttribute="trailing" id="mfj-am-ai6"/>
                                     <constraint firstAttribute="bottom" secondItem="eJ9-iV-H2e" secondAttribute="bottom" id="tPy-zZ-bEb"/>

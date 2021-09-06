@@ -7,25 +7,21 @@
 
 import UIKit
 
-class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var containerViewForCollection: UIView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
-    
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var moveLabel: UILabel!
-    
     @IBOutlet weak var firstStarImage: UIImageView!
     @IBOutlet weak var secondStarImage: UIImageView!
     @IBOutlet weak var thirdStarImage: UIImageView!
     
     let clickManager: ClickManager = ClickManager()
-    
     var board: Board = Board()
     var originalBoard: Board = Board()
-    
     var solution: [Int] = []
     var originalSolution: [Int] = []
     
@@ -39,32 +35,24 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         originalBoard = board
         solution = boardAndSolution.1
         originalSolution = solution
-        
-        let frame: CGRect = calculateSizeForCollection()
-        let boardCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        let frame = calculateSizeForCollection()
+        let boardCollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         boardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
         boardCollectionView.delegate = self
         boardCollectionView.dataSource = self
         containerViewForCollection.addSubview(boardCollectionView)
+        print("subview added")
         containerViewForCollection.backgroundColor = .clear
         boardCollectionView.backgroundColor = .clear
-
-        
     }
     
-   /* override func viewDidLayoutSubviews() {
-        let frame: CGRect = calculateSizeForCollection()
-        let boardCollectionView: UICollectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        boardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BoardCell")
-        boardCollectionView.delegate = self
-        boardCollectionView.dataSource = self
-        containerViewForCollection.addSubview(boardCollectionView)
-        containerViewForCollection.backgroundColor = .clear
-        boardCollectionView.backgroundColor = .clear
+    override func viewDidLayoutSubviews() {
+        print("Size containerViewForCollection \(containerViewForCollection.frame)")
     }
-  */
+    
     func calculateSizeForCollection() -> CGRect {
         let frame: CGRect = containerViewForCollection.frame
+        print(containerViewForCollection.frame)
         var padding: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let insets: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let minimumSpacing: CGFloat = 5.0
@@ -105,6 +93,7 @@ class GameBoard: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         print("Updated solution \(solution)")
         collectionView.reloadData()
         print(clickManager.verifyGameStatus(board: board))
+        print(containerViewForCollection.frame)
     }
     
 }
