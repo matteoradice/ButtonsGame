@@ -45,14 +45,6 @@ struct CollectionLayoutManager {
             right: (availableWidth - actuallyUsedWidth) / 2
         )
         
-        
-        //  Check del layout
-        print("Total size of the collection: width \(availableWidth) and height \(availableHeight) ")
-        print("Internal spacing vs the containing view: top \(layout.sectionInset.top) and left \(layout.sectionInset.left)")
-        print("Item size: width \(layout.itemSize.width) and height \(layout.itemSize.height)")
-        print("Spacing btw rows \(layout.minimumLineSpacing) and columns \(layout.minimumInteritemSpacing)")
-        print("Total actual allocated space for the collection: width \(actuallyUsedWidth) and height\(actuallyUsedHeight)")
-        
         return layout
         
     }

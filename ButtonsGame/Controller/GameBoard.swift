@@ -82,7 +82,6 @@ extension GameBoard {
         print("Updated solution \(solution)")
         collectionView.reloadData()
         print(clickManager.verifyGameStatus(board: board))
-        print(containerViewForCollection.frame)
     }
 
 }
