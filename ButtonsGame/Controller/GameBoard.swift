@@ -24,6 +24,7 @@ class GameBoard: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var board: Board = Board()
     var originalBoard: Board = Board()
     let collectionLayoutManager: CollectionLayoutManager = CollectionLayoutManager()
+    let gameKeeper: GameKeeper = GameKeeper()
     
     var solution: [Int] = []
     var originalSolution: [Int] = []
@@ -82,6 +83,11 @@ extension GameBoard {
         print("Updated solution \(solution)")
         collectionView.reloadData()
         print(clickManager.verifyGameStatus(board: board))
+        
+        var starImages: [UIImage] = gameKeeper.updateStatus(difficultyLevel: 5)
+        firstStarImage.image = starImages[0]
+        secondStarImage.image = starImages[1]
+        thirdStarImage.image = starImages[2]
     }
 
 }

@@ -61,4 +61,14 @@ class K {
     //  Variabile che definisce il numero di stellette ottenibili nel livello
     static let numberOfMaxStars: Int = 3
     
+    //  Variabili di gameplay
+    static var move: Int = 0
+    static var level: Int = 0
+    static var suggestion: Int = 0
+    static var stars: Int = 3
+    
+    //  Immagini stelle
+    static let filledStar: UIImage = UIImage(named: "FilledStar")!
+    static let emptyStar: UIImage = UIImage(named: "EmptyStar")!
+    
 }

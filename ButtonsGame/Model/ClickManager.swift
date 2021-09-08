@@ -119,5 +119,6 @@ struct ClickManager {
         }
         return solutionArray
     }
+
     
 }

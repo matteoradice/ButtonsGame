@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "MovesCircle.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "MovesCircle@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "MovesCircle@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "MovesCircle.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

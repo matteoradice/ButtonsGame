@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "CheckedButtonBoard.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "CheckedButtonBoard@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "CheckedButtonBoard@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "CheckedButtonBoard.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

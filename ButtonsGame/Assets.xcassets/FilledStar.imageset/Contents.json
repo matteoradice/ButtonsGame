@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "FilledStar.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "FilledStar@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "FilledStar@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "FilledStar.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
